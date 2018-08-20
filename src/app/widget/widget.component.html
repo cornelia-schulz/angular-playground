@@ -1,0 +1,6 @@
+<h2>Widget</h2>
+<input MatInput [(ngModel)]="colour" type="text" name="colour" />
+<p [style.color]="colour">
+  Let's see that widget...{{widget}}
+</p>
+<button type="button" Matbutton (click)="echo(colour)">Click me</button>
