@@ -1,6 +1,70 @@
 <h2>Widget</h2>
-<input MatInput [(ngModel)]="colour" type="text" name="colour" />
+<!-- <input MatInput [(ngModel)]="colour" type="text" name="colour" />
 <p [style.color]="colour">
   Let's see that widget...{{widget}}
 </p>
 <button type="button" Matbutton (click)="echo(colour)">Click me</button>
+<div *ngIf ="hero">{{hero}}</div>
+<div *ngFor="let hero of heroes">{{hero}}</div>
+
+<span [ngSwitch]="toeChoice">
+  <span *ngSwitchCase="Eenie">Eenie</span>
+  <span *ngSwitchCase="Meanie">Meanie</span>
+  <span *ngSwitchCase="Miney">Miney</span>
+  <span *ngSwitchCase="Moe">Moe</span>
+</span> -->
+
+<div class="container">
+  <!-- WIDGETS LIST -->
+  <div class="col-50">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <h1>Widgets</h1>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item 
+          *ngFor="let widget of widgets"
+          (click)="selected(widget)">
+            <h3 mat-line>{{widget.name}}</h3>
+            <button mat-icon-button>
+              <mat-icon>close</mat-icon>
+            </button>
+            <p mat-line>
+              {{widget.description}}
+            </p>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+  <!-- WIDGET DETAILS -->
+  <div class="col-50">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <h1>
+            Select a Widget
+          </h1>
+        </mat-card-title>
+      </mat-card-header>
+      <form>
+        <mat-card-content *ngIf="selectedWidget else unselected">
+          <!-- SELECTED WIDGET DETAILS -->
+          {{selectedWidget.name}}
+        </mat-card-content>
+        <ng-template #unselected>Please select a widget</ng-template>
+        <mat-card-actions>
+          <button type="submit" md-button>Save</button>
+          <button type="button" md-button (click)="selected(null)">Cancel</button>
+        </mat-card-actions>
+      </form>
+    </mat-card>
+    <hr/>
+    <pre>{{selectedWidget | json}}</pre>
+  </div>
+</div>
