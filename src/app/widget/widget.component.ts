@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { WidgetsService } from '../shared';
+import { Component, OnInit } from '@angular/core'
+import { WidgetsService } from '../shared'
 
 @Component({
   selector: 'app-widget',
@@ -7,27 +7,27 @@ import { WidgetsService } from '../shared';
   styleUrls: ['./widget.component.css']
 })
 export class WidgetComponent implements OnInit {
+  selectedWidget
+  widgets
 
-  constructor(private widgetsService: WidgetsService)
+  constructor(private widgetsService: WidgetsService) {}
 
-  widget = 'very widgety';
-  colour = 'blue';
-  hero = 'Moe';
-  heroes = ["Eenie", "Meanie", "Miney", "Moe"];
-  selectedWidget;
+  widget = 'very widgety'
+  colour = 'blue'
+  hero = 'Moe'
+  heroes = ["Eenie", "Meanie", "Miney", "Moe"]
   
 
-  constructor() { }
-
   ngOnInit() {
+    this.widgets = this.widgetsService.widgets
   }
 
   selected(widget){
-    this.selectedWidget = widget;
+    this.selectedWidget = widget
   }
   
   echo(message) {
-    console.log("Message:", message);
+    console.log("Message:", message)
   }
   
 }
