@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { WidgetsService } from '../shared'
+import { Widget } from '../shared'
 
 @Component({
   selector: 'app-widget',
@@ -7,8 +8,8 @@ import { WidgetsService } from '../shared'
   styleUrls: ['./widget.component.css']
 })
 export class WidgetComponent implements OnInit {
-  selectedWidget
-  widgets
+  selectedWidget: Widget
+  widgets: Widget[]
 
   constructor(private widgetsService: WidgetsService) {}
 
