@@ -6,8 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'playground';
+  title = 'Playground';
   links = [
-    // path: '/widget', icon: 'view-quilt', label: 'widget'
+    {path: '/widget', icon: 'view_quilt', label: 'Widgets'},
+    {path: '/review', icon: 'list', label: 'Reviews'}
   ];
 }

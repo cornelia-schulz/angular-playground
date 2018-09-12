@@ -5,9 +5,10 @@ import { ReviewComponent } from './review/review.component'
 
 const routes: Routes = [
     {path: 'widgets', component: WidgetComponent},
+    {path: 'review', component: ReviewComponent},
     // ** stands for any route, you can direct them wherever you like
-    {path: '**', component: WidgetComponent},
-    {path: 'review', component: ReviewComponent}
+    {path: '**', component: WidgetComponent}
+    
 ];
 
 @NgModule({
