@@ -8,18 +8,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppMaterialModule } from './app-material.module';
 
 import { WidgetsService } from './shared';
+import { ItemsService } from './shared';
 
 import { AppComponent } from './app.component';
 import { WidgetComponent } from './widget/widget.component';
 import { ReviewComponent } from './review/review.component';
 import { HomeComponent } from './home/home.component';
+import { ItemsComponent } from './items/items.component';
+import { ItemsListComponent } from './items/items-list/items-list.component';
+import { ItemDetailComponent } from './items/item-detail/item-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WidgetComponent,
     ReviewComponent,
-    HomeComponent
+    HomeComponent,
+    ItemsComponent,
+    ItemsListComponent,
+    ItemDetailComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -29,7 +36,7 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     AppMaterialModule
   ],
-  providers: [WidgetsService],
+  providers: [ItemsService, WidgetsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
