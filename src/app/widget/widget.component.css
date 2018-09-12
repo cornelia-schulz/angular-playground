@@ -3,7 +3,15 @@
     background: whitesmoke;
 }
 
+.container {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
 .col-50 {
     width: 50%;
-    display: inline;
+    margin-right: 10px;
 }

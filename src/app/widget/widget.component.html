@@ -1,4 +1,3 @@
-<h2>Widget</h2>
 <!-- <input MatInput [(ngModel)]="colour" type="text" name="colour" />
 <p [style.color]="colour">
   Let's see that widget...{{widget}}
@@ -13,7 +12,7 @@
   <span *ngSwitchCase="Miney">Miney</span>
   <span *ngSwitchCase="Moe">Moe</span>
 </span> -->
-
+<!-- <h2>Widget</h2> -->
 <div class="container">
   <!-- WIDGETS LIST -->
   <div class="col-50">
@@ -25,9 +24,7 @@
       </mat-card-header>
       <mat-card-content>
         <mat-list>
-          <mat-list-item 
-          *ngFor="let widget of widgets"
-          (click)="selected(widget)">
+          <mat-list-item *ngFor="let widget of widgets" (click)="selected(widget)">
             <h3 mat-line>{{widget.name}}</h3>
             <button mat-icon-button>
               <mat-icon>close</mat-icon>
@@ -59,8 +56,8 @@
         </mat-card-content>
         <ng-template #unselected>Please select a widget</ng-template>
         <mat-card-actions>
-          <button type="submit" md-button>Save</button>
-          <button type="button" md-button (click)="selected(null)">Cancel</button>
+          <button type="submit" mat-button>Save</button>
+          <button type="button" mat-button (click)="selected(null)">Cancel</button>
         </mat-card-actions>
       </form>
     </mat-card>
