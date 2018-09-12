@@ -8,16 +8,13 @@ import { WidgetsService } from '../shared';
 })
 export class WidgetComponent implements OnInit {
 
-  constructor(private widgetsService: WidgetsService)
+  constructor(private widgetsService: WidgetsService) {}
 
   widget = 'very widgety';
   colour = 'blue';
   hero = 'Moe';
   heroes = ["Eenie", "Meanie", "Miney", "Moe"];
   selectedWidget;
-  
-
-  constructor() { }
 
   ngOnInit() {
   }
