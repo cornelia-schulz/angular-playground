@@ -11,7 +11,7 @@ const routes: Routes = [
     {path: 'widgets', component: WidgetComponent},
     {path: 'review', component: ReviewComponent},
     // ** stands for any route, you can direct them wherever you like
-    {path: '**', component: WidgetComponent}
+    {path: '**', component: HomeComponent}
     
 ];
 
