@@ -71,26 +71,31 @@
       <h2>Add new widget</h2>
     </mat-card-title>
   </mat-card-header>
-  <form #widgetForm="ngForm">
+  <form #widgetForm="ngForm"
+    (submit)="save(selectedWidget)">
     <mat-card-content>
       <fieldset ngModelGroup="widget">
         <mat-form-field class="full-width">
           <input
             required
             matInput placeholder="Name"
+            [(ngModel)]="selectedWidget.name"
             type="text" name="name" />
         </mat-form-field>
         <mat-form-field class="full-width">
           <input
             matInput placeholder="Description"
+            [(ngModel)]="selectedWidget.description"
             type="text" name="description" />
         </mat-form-field>
       </fieldset>
     </mat-card-content>
     <mat-card-actions>
       <button type="submit" [disabled]="!widgetForm.valid" mat-button>Save</button>
+      <button type="button" mat-button (click)="cancel()">Cancel</button>
     </mat-card-actions>
   </form>
+  <pre>{{widgetForm.value | json}}</pre>
   </mat-card>
 
 </div>

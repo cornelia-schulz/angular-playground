@@ -21,6 +21,11 @@ export class WidgetComponent implements OnInit {
 
   ngOnInit() {
     this.widgets = this.widgetsService.widgets
+    this.reset()
+  }
+
+  reset() {
+    this.selectedWidget = { id: null, name: "", description: "" }
   }
 
   selected(widget){
@@ -30,5 +35,14 @@ export class WidgetComponent implements OnInit {
   echo(message) {
     console.log("Message:", message)
   }
+
+  save(widget) {
+    console.log('Saving widget: ', widget)
+    this.widgets.push(widget)
+  }
   
+  cancel() {
+    this.reset()
+  }
+
 }
