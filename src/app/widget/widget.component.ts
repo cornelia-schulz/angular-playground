@@ -8,8 +8,8 @@ import { Widget } from '../shared'
   styleUrls: ['./widget.component.css']
 })
 export class WidgetComponent implements OnInit {
-  selectedWidget: Widget
-  widgets: Widget[]
+  selectedWidget: Widget;
+  widgets: Widget[];
 
   constructor(private widgetsService: WidgetsService) {}
 
@@ -20,29 +20,29 @@ export class WidgetComponent implements OnInit {
   
 
   ngOnInit() {
-    this.widgets = this.widgetsService.widgets
-    this.reset()
+    this.widgets = this.widgetsService.widgets;
+    this.reset();
   }
 
   reset() {
     this.selectedWidget = { id: null, name: "", description: "" }
   }
 
-  selected(widget){
-    this.selectedWidget = widget
+  selectWidget(widget){
+    this.selectedWidget = widget;
   }
   
   echo(message) {
-    console.log("Message:", message)
+    console.log("Message:", message);
   }
 
-  save(widget) {
-    console.log('Saving widget: ', widget)
-    this.widgets.push(widget)
+  saveWidget(widget) {
+    console.log('Saving widget: ', widget);
+    this.widgets.push(widget);
   }
   
   cancel() {
-    this.reset()
+    this.reset();
   }
 
 }

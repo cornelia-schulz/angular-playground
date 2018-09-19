@@ -1,0 +1,40 @@
+<div class="col-50">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        <h1>
+          Select a Widget
+        </h1>
+      </mat-card-title>
+    </mat-card-header>
+    <form #widgetForm="ngForm"
+    (submit)="save(selectedWidget)">
+      <mat-card-content *ngIf="selectedWidget else unselected">
+        <fieldset ngModelGroup="widget">
+          <mat-form-field class="full-width">
+            <input
+              required
+              matInput placeholder="Name"
+              [(ngModel)]="selectedWidget.name"
+              type="text" name="name" />
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input
+              matInput placeholder="Description"
+              [(ngModel)]="selectedWidget.description"
+              type="text" name="description" />
+          </mat-form-field>
+          </fieldset>
+        <!-- SELECTED WIDGET DETAILS -->
+        {{selectedWidget.name}}
+      </mat-card-content>
+      <ng-template #unselected>Please select a widget</ng-template>
+      <mat-card-actions>
+        <button type="submit" mat-button>Save</button>
+        <button type="button" mat-button (click)="selected(null)">Cancel</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+  <hr/>
+  <pre>{{selectedWidget | json}}</pre>
+</div>
