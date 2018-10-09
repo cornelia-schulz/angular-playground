@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core'
-import { WidgetsService } from '../shared'
-import { Widget } from '../shared'
+import { Component, OnInit } from '@angular/core';
+import { WidgetsService, Widget } from '../shared';
 
 @Component({
   selector: 'app-widget',
@@ -20,11 +19,16 @@ export class WidgetComponent implements OnInit {
   
 
   ngOnInit() {
-    this.widgets = this.widgetsService.widgets;
-    this.reset();
+    this.getWidgets();
+    this.resetSelectedWidget();
   }
 
-  reset() {
+  getWidgets(){
+    this.widgetsService.all()
+      .subscribe(widgets => this.widgets = widgets);
+  }
+
+  resetSelectedWidget() {
     this.selectedWidget = { id: null, name: "", description: "" }
   }
 
@@ -32,22 +36,40 @@ export class WidgetComponent implements OnInit {
     this.selectedWidget = widget;
   }
 
-  deleteWidget(widget){
-    console.log('Deleting widget: ', widget);
+  cancel(widget){
+    this.resetSelectedWidget();
   }
-  
-  echo(message) {
-    console.log("Message:", message);
+
+  deleteWidget(widget){
+    this.widgetsService.delete(widget)
+      .subscribe(res => {
+        this.getWidgets();
+        this.resetSelectedWidget();
+      })
   }
 
   saveWidget(widget) {
-    console.log('Saving widget: ', widget);
-    // this.widgets.push(widget);
-    this.reset;
+    if(!widget.id){
+      this.createWidget(widget);
+    } else {
+      this.updateWidget(widget);
+    }
   }
   
-  cancel(widget) {
-    this.reset();
+  createWidget(widget){
+    this.widgetsService.create(widget)
+      .subscribe(res => {
+        this.getWidgets();
+        this.resetSelectedWidget();
+      });
+  }
+
+  updateWidget(widget){
+    this.widgetsService.update(widget)
+      .subscribe(res => {
+        this.getWidgets();
+        this.resetSelectedWidget();
+      })
   }
 
 }
