@@ -13,6 +13,7 @@ export class WidgetDetailsComponent {
   @Output() cancelled = new EventEmitter();
 
   // @Input() widget: Widget;
+  // use Object.assign to create a copy of the original state and make it immutable to avoid side effects
   @Input() set widget(value: Widget) {
     if(value) {this.originalName = value.name;}
     this.selectedWidget = Object.assign({}, value)

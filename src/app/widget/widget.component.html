@@ -17,12 +17,12 @@
   <!-- WIDGETS LIST -->
   <app-widgets-list [widgets]="widgets"
                      (selected)="selectWidget($event)"
-                     (deleted)="deletedWidget($event)"></app-widgets-list>
+                     (deleted)="deleteWidget($event)"></app-widgets-list>
 
 
   <!-- WIDGET DETAILS -->
   <app-widget-details [widget]="selectedWidget"
-                      (saved)="save($event)"
+                      (saved)="saveWidget($event)"
                       (cancelled)="cancel($event)"></app-widget-details>
 
   <!-- <mat-card>

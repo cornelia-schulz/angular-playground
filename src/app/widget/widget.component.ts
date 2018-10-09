@@ -31,6 +31,10 @@ export class WidgetComponent implements OnInit {
   selectWidget(widget){
     this.selectedWidget = widget;
   }
+
+  deleteWidget(widget){
+    console.log('Deleting widget: ', widget);
+  }
   
   echo(message) {
     console.log("Message:", message);
@@ -38,10 +42,11 @@ export class WidgetComponent implements OnInit {
 
   saveWidget(widget) {
     console.log('Saving widget: ', widget);
-    this.widgets.push(widget);
+    // this.widgets.push(widget);
+    this.reset;
   }
   
-  cancel() {
+  cancel(widget) {
     this.reset();
   }
 

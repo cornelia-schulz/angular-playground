@@ -7,9 +7,11 @@
     </mat-card-header>
     <mat-card-content>
       <mat-list>
-        <mat-list-item *ngFor="let widget of widgets" (click)="selected(widget)">
+        <mat-list-item *ngFor="let widget of widgets" (click)="selected.emit(widget)">
           <h3 mat-line>{{widget.name}}</h3>
-          <button mat-icon-button>
+          <!--$event.stopImmediatePropagation is to stop event bubbling /
+              emit only ever takes one parameter-->
+          <button mat-icon-button (click)="deleted.emit(widget);$event.stopImmediatePropagation">
             <mat-icon>close</mat-icon>
           </button>
           <p mat-line>

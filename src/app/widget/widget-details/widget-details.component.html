@@ -8,7 +8,7 @@
       </mat-card-title>
     </mat-card-header>
     <form #widgetForm="ngForm"
-    (submit)="save(selectedWidget)">
+    (submit)="saved.emit(selectedWidget)">
       <mat-card-content *ngIf="selectedWidget else unselected">
         <fieldset ngModelGroup="widget">
           <mat-form-field class="full-width">
@@ -31,7 +31,7 @@
       <ng-template #unselected>Please select a widget</ng-template>
       <mat-card-actions>
         <button type="submit" mat-button>Save</button>
-        <button type="button" mat-button (click)="selected(null)">Cancel</button>
+        <button type="button" mat-button (click)="cancelled.emit(selectedWidget)">Cancel</button>
       </mat-card-actions>
     </form>
   </mat-card>
