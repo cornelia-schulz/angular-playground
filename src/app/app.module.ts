@@ -19,6 +19,7 @@ import { ItemsListComponent } from './items/items-list/items-list.component';
 import { ItemDetailComponent } from './items/item-detail/item-detail.component';
 import { WidgetsListComponent } from './widget/widgets-list/widgets-list.component';
 import { WidgetDetailsComponent } from './widget/widget-details/widget-details.component';
+import { ItemsSearchComponent } from './items/items-search/items-search.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { WidgetDetailsComponent } from './widget/widget-details/widget-details.c
     ItemsListComponent,
     ItemDetailComponent,
     WidgetsListComponent,
-    WidgetDetailsComponent
+    WidgetDetailsComponent,
+    ItemsSearchComponent
   ],
   imports: [
     BrowserAnimationsModule,
