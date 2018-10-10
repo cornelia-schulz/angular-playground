@@ -11,20 +11,18 @@ import { map, filter, debounceTime, distinctUntilChanged, switchMap } from 'rxjs
 export class ItemsSearchComponent implements OnInit {
   // this is a reference to #itemsSearch in the items-search.component.html file
   @ViewChild('itemsSearch') itemsSearch;
-  items;
+  @Output() results = new EventEmitter();
 
   constructor(private itemsService: ItemsService) { }
 
   ngOnInit() {
     const search = this.getNativeElement(this.itemsSearch);
     const subscription = fromEvent(search, 'keyup')
-      .pipe(debounceTime(200)) // delays event
+      .pipe(debounceTime(200)) // delays (throttling) event
+      .pipe(distinctUntilChanged())  // doesn't update if you type, delete and type the same thing
       .pipe(map((event: any) => event.target.value))
-      .pipe(switchMap(query => this.itemsService.search(query)))
-      .subscribe((items) => {
-        this.items = items;
-        console.log('Query: ', items);
-      })
+      .pipe(switchMap(query => this.itemsService.search(query)))  // switchMap takes one observable stream and maps it to another, in this case to the itemsService
+      .subscribe((items) => this.results.emit(items))
   }
 
   getNativeElement(element){

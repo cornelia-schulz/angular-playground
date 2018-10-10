@@ -21,4 +21,7 @@ export class HomeComponent implements OnInit {
       .subscribe(items => this.items = items);
   }
 
+  handleResults(items){
+    this.items = items
+  }
 }
