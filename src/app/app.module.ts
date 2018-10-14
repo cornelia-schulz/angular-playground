@@ -20,6 +20,9 @@ import { ItemDetailComponent } from './items/item-detail/item-detail.component';
 import { WidgetsListComponent } from './widget/widgets-list/widgets-list.component';
 import { WidgetDetailsComponent } from './widget/widget-details/widget-details.component';
 import { ItemsSearchComponent } from './items/items-search/items-search.component';
+import { StatusComponent } from './status/status.component';
+import { UserComponent } from './user/user.component';
+import { NewsletterComponent } from './newsletter/newsletter.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { ItemsSearchComponent } from './items/items-search/items-search.componen
     ItemDetailComponent,
     WidgetsListComponent,
     WidgetDetailsComponent,
-    ItemsSearchComponent
+    ItemsSearchComponent,
+    StatusComponent,
+    UserComponent,
+    NewsletterComponent
   ],
   imports: [
     BrowserAnimationsModule,
