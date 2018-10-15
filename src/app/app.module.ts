@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -23,6 +23,7 @@ import { ItemsSearchComponent } from './items/items-search/items-search.componen
 import { StatusComponent } from './status/status.component';
 import { UserComponent } from './user/user.component';
 import { NewsletterComponent } from './newsletter/newsletter.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -38,12 +39,14 @@ import { NewsletterComponent } from './newsletter/newsletter.component';
     ItemsSearchComponent,
     StatusComponent,
     UserComponent,
-    NewsletterComponent
+    NewsletterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     AppRoutingModule,
     AppMaterialModule
