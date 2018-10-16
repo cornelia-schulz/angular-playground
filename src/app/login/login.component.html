@@ -2,7 +2,7 @@
   <mat-card-header>
     <h1>Login</h1>
   </mat-card-header>
-  <form novalidate [formGroup]="login" (ngSubmit)="onSubmit()">
+  <form novalidate [formGroup]="login" (submit)="submit(login)">
     <mat-card-content>
       <mat-form-field class="full-width">
         <input type="text" matInput placeholder="Username" formControlName="username" />
