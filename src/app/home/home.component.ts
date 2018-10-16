@@ -12,13 +12,13 @@ import { Widget } from '../shared/widget.model';
 export class HomeComponent implements OnInit {
   items: Item[];
   widgets: Widget[];
-  myStatus = 'active'
+  myStatus = 'active';
 
   constructor(private itemsService: ItemsService,
               private widgetsService: WidgetsService) { }
 
-  logout($event){
-    this.myStatus = 'Logged out!'
+  logout($event) {
+    this.myStatus = 'Logged out!';
   }
 
   ngOnInit() {
@@ -31,12 +31,12 @@ export class HomeComponent implements OnInit {
       .subscribe(items => this.items = items);
   }
 
-  handleResults(items){
-    this.items = items
+  handleResults(items) {
+    this.items = items;
   }
 
   getWidgets() {
     this.widgetsService.all()
-      .subscribe(widgets => this.widgets = widgets)
+      .subscribe(widgets => this.widgets = widgets);
   }
 }

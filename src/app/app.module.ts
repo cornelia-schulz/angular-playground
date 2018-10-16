@@ -9,6 +9,7 @@ import { AppMaterialModule } from './app-material.module';
 
 import { WidgetsService } from './shared';
 import { ItemsService } from './shared';
+import { NotificationsService } from './shared';
 
 import { AppComponent } from './app.component';
 import { WidgetComponent } from './widget/widget.component';
@@ -51,7 +52,7 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     AppMaterialModule
   ],
-  providers: [ItemsService, WidgetsService],
+  providers: [ItemsService, WidgetsService, NotificationsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

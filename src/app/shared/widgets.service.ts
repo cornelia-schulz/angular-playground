@@ -1,6 +1,6 @@
 import { Http, Headers, URLSearchParams } from '@angular/http';
-import { Injectable } from "@angular/core";
-import { Widget } from "./widget.model";
+import { Injectable } from '@angular/core';
+import { Widget } from './widget.model';
 import { map, debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 const BASE_URL = 'http://localhost:3000/widgets/';

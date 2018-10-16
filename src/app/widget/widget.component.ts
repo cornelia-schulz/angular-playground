@@ -12,51 +12,50 @@ export class WidgetComponent implements OnInit {
 
   constructor(private widgetsService: WidgetsService) {}
 
-  widget = 'very widgety'
-  colour = 'blue'
-  hero = 'Moe'
-  heroes = ["Eenie", "Meanie", "Miney", "Moe"]
-  
+  widget = 'very widgety';
+  colour = 'blue';
+  hero = 'Moe';
+  heroes = ['Eenie', 'Meanie', 'Miney', 'Moe'];
 
   ngOnInit() {
     this.getWidgets();
     this.resetSelectedWidget();
   }
 
-  getWidgets(){
+  getWidgets() {
     this.widgetsService.all()
       .subscribe(widgets => this.widgets = widgets);
   }
 
   resetSelectedWidget() {
-    this.selectedWidget = { id: null, name: "", description: "" }
+    this.selectedWidget = { id: null, name: '', description: '' };
   }
 
-  selectWidget(widget){
+  selectWidget(widget) {
     this.selectedWidget = widget;
   }
 
-  cancel(widget){
+  cancel(widget) {
     this.resetSelectedWidget();
   }
 
-  deleteWidget(widget){
+  deleteWidget(widget) {
     this.widgetsService.delete(widget)
       .subscribe(res => {
         this.getWidgets();
         this.resetSelectedWidget();
-      })
+      });
   }
 
   saveWidget(widget) {
-    if(!widget.id){
+    if (!widget.id) {
       this.createWidget(widget);
     } else {
       this.updateWidget(widget);
     }
   }
-  
-  createWidget(widget){
+
+  createWidget(widget) {
     this.widgetsService.create(widget)
       .subscribe(res => {
         this.getWidgets();
@@ -64,12 +63,12 @@ export class WidgetComponent implements OnInit {
       });
   }
 
-  updateWidget(widget){
+  updateWidget(widget) {
     this.widgetsService.update(widget)
       .subscribe(res => {
         this.getWidgets();
         this.resetSelectedWidget();
-      })
+      });
   }
 
 }
