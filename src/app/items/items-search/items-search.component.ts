@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
-import { ItemsService } from '../../shared'
-import { Observable, fromEvent } from 'rxjs'
+import { ItemsService } from '../../shared';
+import { Observable, fromEvent } from 'rxjs';
 import { map, filter, debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 @Component({
@@ -21,11 +21,13 @@ export class ItemsSearchComponent implements OnInit {
       .pipe(debounceTime(200)) // delays (throttling) event
       .pipe(distinctUntilChanged())  // doesn't update if you type, delete and type the same thing
       .pipe(map((event: any) => event.target.value))
-      .pipe(switchMap(query => this.itemsService.search(query)))  // switchMap takes one observable stream and maps it to another, in this case to the itemsService
-      .subscribe((items) => this.results.emit(items))
+      .pipe(switchMap(query => this.itemsService.search(query)))
+      .subscribe((items) => this.results.emit(items));
   }
 
-  getNativeElement(element){
+// switchMap takes one observable stream and maps it to another, in this case to the itemsService
+
+  getNativeElement(element) {
     return element.nativeElement;
   }
 

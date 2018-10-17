@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NewsletterComponent } from './newsletter.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NotificationsService } from '../shared';
 
 describe('NewsletterComponent', () => {
   let component: NewsletterComponent;
@@ -8,7 +10,10 @@ describe('NewsletterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewsletterComponent ]
+      imports: [ReactiveFormsModule],
+      declarations: [ NewsletterComponent ],
+      providers: [NotificationsService],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   }));

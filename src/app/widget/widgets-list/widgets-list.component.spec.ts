@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { WidgetsListComponent } from './widgets-list.component';
 
 describe('WidgetsListComponent', () => {
@@ -8,7 +8,8 @@ describe('WidgetsListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WidgetsListComponent ]
+      declarations: [ WidgetsListComponent ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   }));

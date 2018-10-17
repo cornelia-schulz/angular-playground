@@ -1,22 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { ItemsComponent } from './items.component';
-import { ItemsListComponent } from './items-list/items-list.component';
-import { ItemDetailComponent } from './item-detail/item-detail.component';
+import { ItemComponent } from './item.component';
+import { ItemDetailComponent } from '../item-detail/item-detail.component';
 import { FormsModule } from '@angular/forms';
-import { ItemsService } from '../shared';
 import { HttpModule } from '@angular/http';
+import { ItemsService } from 'src/app/shared';
+import { RouterTestingModule } from '@angular/router/testing';
 
-describe('ItemsComponent', () => {
-  let component: ItemsComponent;
-  let fixture: ComponentFixture<ItemsComponent>;
+describe('ItemComponent', () => {
+  let component: ItemComponent;
+  let fixture: ComponentFixture<ItemComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [FormsModule,
-                HttpModule],
-      declarations: [ ItemsComponent,
-                      ItemsListComponent,
+                HttpModule,
+                RouterTestingModule],
+      declarations: [ ItemComponent,
                       ItemDetailComponent ],
       providers: [ItemsService],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
@@ -25,7 +25,7 @@ describe('ItemsComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ItemsComponent);
+    fixture = TestBed.createComponent(ItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { WidgetDetailsComponent } from './widget-details.component';
+import { FormsModule } from '@angular/forms';
 
 describe('WidgetDetailsComponent', () => {
   let component: WidgetDetailsComponent;
@@ -8,7 +9,9 @@ describe('WidgetDetailsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WidgetDetailsComponent ]
+      imports: [FormsModule],
+      declarations: [ WidgetDetailsComponent ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   }));

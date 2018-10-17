@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-review',
@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core'
 })
 
 export class ReviewComponent implements OnInit {
+  title = 'Review';
+  books = ['Book 1', 'Book 2', 'Book 3'];
+
   constructor() {}
   ngOnInit() {}
 
-  title = 'Review'
-  books = ['Book 1', 'Book 2', 'Book 3']
+
 }

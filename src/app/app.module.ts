@@ -25,6 +25,7 @@ import { StatusComponent } from './status/status.component';
 import { UserComponent } from './user/user.component';
 import { NewsletterComponent } from './newsletter/newsletter.component';
 import { LoginComponent } from './login/login.component';
+import { ItemComponent } from './items/item/item.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { LoginComponent } from './login/login.component';
     StatusComponent,
     UserComponent,
     NewsletterComponent,
-    LoginComponent
+    LoginComponent,
+    ItemComponent
   ],
   imports: [
     BrowserAnimationsModule,
